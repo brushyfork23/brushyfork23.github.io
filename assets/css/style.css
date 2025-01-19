@@ -996,11 +996,12 @@ table td {
   color: var(--minima-text-color);
 }
 
-.post-content {
+.post-list .post-content {
   padding-left: 1em;
+  width: 73%;
 }
 
-.post-content h3 {
+.post-list .post-content h3 {
   margin-top: 0;
 }
 
