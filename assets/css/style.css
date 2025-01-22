@@ -1045,4 +1045,26 @@ ul.subscribe-links {
   color: var(--minima-site-title-color);
 }
 
+.post-navigation {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.post-navigation a {
+  margin: 1em 0;
+  flex: 0 1 auto;
+}
+
+.post-navigation .next {
+  text-align: left;
+  margin-left: auto;
+}
+
+.post-navigation .prev {
+  text-align: right;
+}
+
 /*# sourceMappingURL=style.css.map */
