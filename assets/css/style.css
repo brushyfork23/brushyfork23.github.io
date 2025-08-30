@@ -1011,6 +1011,12 @@ table td {
   margin-right: auto;
 }
 
+.post-content video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .post-content figcaption {
   margin-top: 0.5em;
   display: block;
@@ -1065,6 +1071,11 @@ ul.subscribe-links {
 
 .post-navigation .prev {
   text-align: right;
+}
+
+blockquote {
+  color: var(--minima-border-color-01);
+  font-style: normal;
 }
 
 /*# sourceMappingURL=style.css.map */

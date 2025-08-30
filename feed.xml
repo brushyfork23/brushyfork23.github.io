@@ -1,13 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://michaelblackmade.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://michaelblackmade.com/" rel="alternate" type="text/html" /><updated>2025-01-29T11:47:27-08:00</updated><id>https://michaelblackmade.com/feed.xml</id><title type="html">Michael Black Made</title><entry><title type="html">Booze Shelf</title><link href="https://michaelblackmade.com/2025/01/05/booze-shelf.html" rel="alternate" type="text/html" title="Booze Shelf" /><published>2025-01-05T00:00:00-08:00</published><updated>2025-01-05T00:00:00-08:00</updated><id>https://michaelblackmade.com/2025/01/05/booze-shelf</id><content type="html" xml:base="https://michaelblackmade.com/2025/01/05/booze-shelf.html"><![CDATA[<p>When Kid became mobile, we had to ditch our bar cart and temporarily stash our booze on the floor of a closet. An obviously horrible location, as it was treacherous to store other things in the closet around and on top of the bottles, and we could never remember what we had.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://michaelblackmade.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://michaelblackmade.com/" rel="alternate" type="text/html" /><updated>2025-08-29T22:58:41-07:00</updated><id>https://michaelblackmade.com/feed.xml</id><title type="html">Michael Black Made</title><entry><title type="html">Page Turner</title><link href="https://michaelblackmade.com/2025/08/25/page-turner.html" rel="alternate" type="text/html" title="Page Turner" /><published>2025-08-25T00:00:00-07:00</published><updated>2025-08-25T00:00:00-07:00</updated><id>https://michaelblackmade.com/2025/08/25/page-turner</id><content type="html" xml:base="https://michaelblackmade.com/2025/08/25/page-turner.html"><![CDATA[<figure class="video">
+    <video width="660" controls="" preload="metadata" poster="">
+        <source src="/assets/page_turner/page_turner.mp4" type="video/mp4" />
+        <source src="/assets/page_turner/page_turner.webm" type="video/webm" />
+        <p>
+            Your browser doesn't support HTML video. Here is a
+            <a href="/assets/page_turner/page_turner.mp4" download="/assets/page_turner/page_turner.mp4">link to the video</a> instead.
+        </p>
+    </video>
+    
+</figure>
+
+<p>Bodies are cool, but finicky, and sometimes they don’t do what we want. A friend of mine has some unexplained nerve pain in their hands, and it hurts for them to type on a keyboard or swipe on a touchscreen. At their request, I made them a device which connects wirelessly to an iPad and reads their waved hand gestures to touchlessly navigate pages in an e-book, allowing for pain-free reading. I built this page turner from some electronic parts from Adafruit and a 3D printed enclosure.</p>
+
+<p>A search for “gesture sensor” introduced me to Adafruit’s <a href="https://www.adafruit.com/product/3595">APDS-9960 breakout board</a>. I wanted the page turner to be small and portable, so it can travel conveniently with the e-reader, so I selected the smallest microcontroller package and battery I wanted to work with: the <a href="https://www.adafruit.com/product/5700">QT Py S3</a> (an ESP32-S3 breakout) with a <a href="https://www.adafruit.com/product/5397">charger BFF</a> and a <a href="https://www.adafruit.com/product/3898">400mAh lipo</a>. These all interconnect with JST cables, so all that needed soldering were some pin headers and an extra wire for the APDS-9960’s interrupt pin. The interrupt connection could be skipped, but it helps improve battery life by not requiring the QT Py to constantly poll the sensor.</p>
+
+<h2 id="assembly">Assembly</h2>
+
+<p>I cut a wire ~1.5” long and soldered it between the QT Py’s A3 and the sensor’s INT.</p>
+
+<figure class="image">
+    <a href="/assets/page_turner/int_wire.jpg"><img src="/assets/page_turner/int_wire_mid.jpg" alt="interrupt wire" /></a>
+    
+    <figcaption>Note that the wire enters through the back of each board.</figcaption>
+    
+</figure>
+
+<p>I soldered pin headers onto the QT Py, skipping over A3,</p>
+
+<p><a href="/assets/page_turner/pin_headers.jpg"><img src="/assets/page_turner/pin_headers_mid.jpg" alt="pin headers" /></a></p>
+
+<p>then finally soldered the charger BFF to those headers.</p>
+
+<p><a href="/assets/page_turner/charger_attached.jpg"><img src="/assets/page_turner/charger_attached_mid.jpg" alt="charger attached" /></a></p>
+
+<p>The components were connected together via JST cables and the wires were carefully bent into shape to scrunch everything into the right orientations.</p>
+
+<p><a href="/assets/page_turner/jst_attached.jpg"><img src="/assets/page_turner/jst_attached_mid.jpg" alt="JST cables" /></a></p>
+
+<p>I outsourced enclosure design to a friend who came up with this phenomenal first model:</p>
+
+<p><a href="/assets/page_turner/first_model.jpg"><img src="/assets/page_turner/first_model_mid.jpg" alt="first model" /></a></p>
+
+<p>A cap fits over the charger BFF’s onboard power switch to make it usable through the enclosure.</p>
+
+<p><a href="/assets/page_turner/switch_cap.jpg"><img src="/assets/page_turner/switch_cap_mid.jpg" alt="switch cap" /></a></p>
+
+<p>A light pipe, printed from translucent PCTG, brings the light of the status LED from the QT Py around to the same side as the switch.</p>
+
+<p><a href="/assets/page_turner/light_pipe.jpg"><img src="/assets/page_turner/light_pipe_mid.jpg" alt="light pipe" /></a></p>
+
+<p>The battery charge indicator simply shines up through a hole.</p>
+
+<p><a href="/assets/page_turner/charging.jpg"><img src="/assets/page_turner/charging_mid.jpg" alt="charging" /></a></p>
+
+<p>Some heat-set inserts were pressed in with a soldering iron to let the enclosure screw together. A spare pair on the back could be used to mount a clip, so the device could be clipped onto the side of the e-reader itself.</p>
+
+<p><a href="/assets/page_turner/inserts.jpg"><img src="/assets/page_turner/inserts_mid.jpg" alt="heat set inserts" /></a></p>
+
+<p>The completed page turner:</p>
+
+<p><a href="/assets/page_turner/page_turner.jpg"><img src="/assets/page_turner/page_turner_mid.jpg" alt="page turner" /></a></p>
+
+<h2 id="software">Software</h2>
+
+<p>The software for this project ended up relatively simple. You can check it out at <a href="http://github.com/brushyfork23/page_turner">github.com/brushyfork23/page_turner</a>.</p>
+
+<p>Originally I had configured a right-to-left swipe to advance the page and a left-to-right swipe to go back, but some real world testing revealed that you mostly only want to go forward and it’s tiring to swing your hand back around the sensor. I changed from gesture sensing to simple proximity sensing, and now the device can be used in any orientation by passing a finger back and forth.</p>
+
+<p>Basic battery monitoring is done by a scan at startup and the device flashes green, orange, or red to indicate the charge percentage remaining.</p>
+
+<h2 id="struggles">Struggles</h2>
+
+<p>The part of the enclosure where the sensor meets the face took a lot of iteration, because if there was any gap between the sensor and the enclosure aperture then the IR LED would flood the inside of the case and cause false positives.</p>
+
+<figure class="image">
+    <a href="/assets/page_turner/sensor.jpg"><img src="/assets/page_turner/sensor_mid.jpg" alt="final sensor" /></a>
+    
+    <figcaption>The final working design.</figcaption>
+    
+</figure>
+
+<p>When I started this project, I didn’t have my own 3D printer, so each iteration required finding time on another available friend’s machine. It was impossible to adjust for the sensor gap because the tolerances of each person’s printer were different, so I finally decided I was ready and purchased my own. I bought a <a href="https://www.prusa3d.com/product/prusa-core-one-kit/">Prusa Core One</a> and some <a href="https://www.3dfuel.com/collections/1-75mm-pro-pctg/products/pro-pctg-ocean-blue-1-75mm">Pro PCTG filament from 3D-Fuel</a>, and was printing with fantastic results right away once I configured <a href="https://support.3dfuel.com/hc/en-us/articles/22046343945495-Pro-PCTG-Print-Profiles">3D-Fuel’s print profiles</a>.</p>
+
+<p>Having a printer allowed me to experiment with true rapid prototyping. I printed the specific section of the model I was having trouble with and iterated on it alone, using only a gram or so of filament each time and only taking 5 minutes between versions. A month of failed back-and-forth was solved in just a few hours!</p>
+
+<p><a href="/assets/page_turner/iterations.jpg"><img src="/assets/page_turner/iterations_mid.jpg" alt="sensor iterations" /></a></p>]]></content><author><name></name></author><summary type="html"><![CDATA[Gesture sensor for pain-free reading]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://michaelblackmade.com/assets/page_turner/page_turner.jpg" /><media:content medium="image" url="https://michaelblackmade.com/assets/page_turner/page_turner.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Booze Shelf</title><link href="https://michaelblackmade.com/2025/01/05/booze-shelf.html" rel="alternate" type="text/html" title="Booze Shelf" /><published>2025-01-05T00:00:00-08:00</published><updated>2025-01-05T00:00:00-08:00</updated><id>https://michaelblackmade.com/2025/01/05/booze-shelf</id><content type="html" xml:base="https://michaelblackmade.com/2025/01/05/booze-shelf.html"><![CDATA[<p>When Kid became mobile, we had to ditch our bar cart and temporarily stash our booze on the floor of a closet. An obviously horrible location, as it was treacherous to store other things in the closet around and on top of the bottles, and we could never remember what we had.</p>
 
 <p>Recently inspiration struck when looking at a bare patch of wall, and now we have a new booze shelf!</p>
 
-<p><a href="/assets/images/booze_shelf/booze_shelf.jpg"><img src="/assets/images/booze_shelf/booze_shelf_mid.jpg" alt="booze shelf" /></a></p>
+<p><a href="/assets/booze_shelf/booze_shelf.jpg"><img src="/assets/booze_shelf/booze_shelf_mid.jpg" alt="booze shelf" /></a></p>
 
 <p>We’d talked about doing a two-tiered set of shelves in the corner of the dining room, but the stud locations and tight quarters meant we’d need custom brackets. It was too much start up energy and the project idea languished.</p>
 
 <figure class="image">
-    <a href="/assets/images/booze_shelf/cardboard_mockup.jpg"><img src="/assets/images/booze_shelf/cardboard_mockup_mid.jpg" alt="cardboard_mockup" /></a>
+    <a href="/assets/booze_shelf/cardboard_mockup.jpg"><img src="/assets/booze_shelf/cardboard_mockup_mid.jpg" alt="cardboard mockup" /></a>
     
     <figcaption>Longheld vision in cardboard</figcaption>
     
@@ -16,7 +102,7 @@
 <p>The design north star had been this photo my wife sent me from <a href="https://aglassofbovino.com/2020/06/main-bathroom-one-room-challenge-the-reveal-spring-2020/">A Glass of Bovino</a>:</p>
 
 <figure class="image">
-    <a href="/assets/images/booze_shelf/inspo.jpg"><img src="/assets/images/booze_shelf/inspo_mid.jpg" alt="shelf inspo" /></a>
+    <a href="/assets/booze_shelf/inspo.jpg"><img src="/assets/booze_shelf/inspo_mid.jpg" alt="shelf inspo" /></a>
     
     <figcaption>Love the brass; love the chamfer</figcaption>
     
@@ -24,12 +110,12 @@
 
 <p>While we’ve found brass brackets we like for most other shelves in the house, they’re expensive, and this one is tucked out of the way so keeping things cheap seemed ideal. Shelf and bracket are simply the IKEA <a href="https://www.ikea.com/us/en/p/bergshult-ramshult-wall-shelf-white-s99325477/">BERGSHULT / RAMSHULT combo</a>.</p>
 
-<p>But what was necessary to take from the inspo was the railing. Railing allows the full surface of the shelf to be used without fear of bottles falling onto your head. Instead of tracking down fancy museum railing, I thought it would be simple to just make my own. I ordered some <a href="https://www.onlinemetals.com/en/buy/brass/0-1875-brass-round-bar-360-h02-extruded/pid/4345">3/16” brass round bar</a> from onlinemetals.com, then cut it down into small segments on the bandsaw and rounded the cut ends on the belt sander. I bent them into U shapes with a metal bender, and sanded them shiny with steel wool. Tight fitting holes were drilled half of the depth into the shelf and the railings were able to press fit in place.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[I cut and bent some brass into little railings for a shelf to hold our booze.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://michaelblackmade.com/assets/images/booze_shelf/booze_shelf.jpg" /><media:content medium="image" url="https://michaelblackmade.com/assets/images/booze_shelf/booze_shelf.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Now Playing</title><link href="https://michaelblackmade.com/2024/01/11/now-playing.html" rel="alternate" type="text/html" title="Now Playing" /><published>2024-01-11T00:00:00-08:00</published><updated>2024-01-11T00:00:00-08:00</updated><id>https://michaelblackmade.com/2024/01/11/now-playing</id><content type="html" xml:base="https://michaelblackmade.com/2024/01/11/now-playing.html"><![CDATA[<p>We needed somewhere to place the sleeve for the currently-playing record. We had an IKEA picture ledge from our old apartment that just needed to be hung up. But before we got around to it, my wife came to me and mused: “Most of the time I’m listening to the radio, and I’d love to see the name of the song or artist without having to pull out my phone. Can you put a ticker of the live feed on the front of the shelf?”</p>
+<p>But what was necessary to take from the inspo was the railing. Railing allows the full surface of the shelf to be used without fear of bottles falling onto your head. Instead of tracking down fancy museum railing, I thought it would be simple to just make my own. I ordered some <a href="https://www.onlinemetals.com/en/buy/brass/0-1875-brass-round-bar-360-h02-extruded/pid/4345">3/16” brass round bar</a> from onlinemetals.com, then cut it down into small segments on the bandsaw and rounded the cut ends on the belt sander. I bent them into U shapes with a metal bender, and sanded them shiny with steel wool. Tight fitting holes were drilled half of the depth into the shelf and the railings were able to press fit in place.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[I cut and bent some brass into little railings for a shelf to hold our booze.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://michaelblackmade.com/assets/booze_shelf/booze_shelf.jpg" /><media:content medium="image" url="https://michaelblackmade.com/assets/booze_shelf/booze_shelf.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Now Playing</title><link href="https://michaelblackmade.com/2024/01/11/now-playing.html" rel="alternate" type="text/html" title="Now Playing" /><published>2024-01-11T00:00:00-08:00</published><updated>2024-01-11T00:00:00-08:00</updated><id>https://michaelblackmade.com/2024/01/11/now-playing</id><content type="html" xml:base="https://michaelblackmade.com/2024/01/11/now-playing.html"><![CDATA[<p>We needed somewhere to place the sleeve for the currently-playing record. We had an IKEA picture ledge from our old apartment that just needed to be hung up. But before we got around to it, my wife came to me and mused: “Most of the time I’m listening to the radio, and I’d love to see the name of the song or artist without having to pull out my phone. Can you put a ticker of the live feed on the front of the shelf?”</p>
 
 <p>It took less than 30 minutes to report an excited “yes!”</p>
 
 <figure class="image">
-    <a href="/assets/images/now_playing/prototype.jpg"><img src="/assets/images/now_playing/prototype_mid.jpg" alt="prototype" /></a>
+    <a href="/assets/now_playing/prototype.jpg"><img src="/assets/now_playing/prototype_mid.jpg" alt="prototype" /></a>
     
     <figcaption>It's almost embarassing when the Seattle station plays Nirvana</figcaption>
     
@@ -40,14 +126,14 @@
 <p>Two boards were joined into a T, making a shelf with a lip to hold up the record and a face to mount the screen into. I cut a slot in the face board that the shelf board could press-fit into using a table saw.</p>
 
 <figure class="image">
-    <a href="/assets/images/now_playing/wood.jpg"><img src="/assets/images/now_playing/wood_mid.jpg" alt="wood" /></a>
+    <a href="/assets/now_playing/wood.jpg"><img src="/assets/now_playing/wood_mid.jpg" alt="wood" /></a>
     
     <figcaption>Press-fit slot cut with table saw</figcaption>
     
 </figure>
 
 <figure class="image">
-    <a href="/assets/images/now_playing/wood_with_screen.jpg"><img src="/assets/images/now_playing/wood_with_screen_mid.jpg" alt="wood with screen" /></a>
+    <a href="/assets/now_playing/wood_with_screen.jpg"><img src="/assets/now_playing/wood_with_screen_mid.jpg" alt="wood with screen" /></a>
     
     <figcaption>Getting a feel for it in place</figcaption>
     
@@ -66,7 +152,7 @@
 <p>I used a router to cut a recess so the LCD would sit flush against the front, then got everything except the front LEDs mounted, wired, and working.</p>
 
 <figure class="image">
-    <a href="/assets/images/now_playing/first_assembly.jpg"><img src="/assets/images/now_playing/first_assembly_mid.jpg" alt="first assembly" /></a>
+    <a href="/assets/now_playing/first_assembly.jpg"><img src="/assets/now_playing/first_assembly_mid.jpg" alt="first assembly" /></a>
     
     <figcaption>I should figure out how to work with ribbon cables...</figcaption>
     
@@ -77,21 +163,21 @@
 <p>I then stained the wood, glued and reassembled everything, and installed the LEDs on either side of the etched words.</p>
 
 <figure class="image">
-    <a href="/assets/images/now_playing/stain_and_laser.jpg"><img src="/assets/images/now_playing/stain_and_laser_mid.jpg" alt="laser-etched" /></a>
+    <a href="/assets/now_playing/stain_and_laser.jpg"><img src="/assets/now_playing/stain_and_laser_mid.jpg" alt="laser-etched" /></a>
     
     <figcaption>Stained and laser-etched</figcaption>
     
 </figure>
 
 <figure class="image">
-    <a href="/assets/images/now_playing/stained_side.jpg"><img src="/assets/images/now_playing/stained_side_mid.jpg" alt="stained side view" /></a>
+    <a href="/assets/now_playing/stained_side.jpg"><img src="/assets/now_playing/stained_side_mid.jpg" alt="stained side view" /></a>
     
     <figcaption>Electronics are hidden from normal viewing angles</figcaption>
     
 </figure>
 
 <figure class="image">
-    <a href="/assets/images/now_playing/reed_switch.jpg"><img src="/assets/images/now_playing/reed_switch_mid.jpg" alt="reed switch" /></a>
+    <a href="/assets/now_playing/reed_switch.jpg"><img src="/assets/now_playing/reed_switch_mid.jpg" alt="reed switch" /></a>
     
     <figcaption>The hidden reed switch that a record presses down on</figcaption>
     
@@ -100,7 +186,7 @@
 <p>I did unfortunately have to go buy brackets to mount this to the wall, which sadly brought the project cost up to $4. So close!</p>
 
 <figure class="image">
-    <a href="/assets/images/now_playing/brackets.jpg"><img src="/assets/images/now_playing/brackets_mid.jpg" alt="brackets" /></a>
+    <a href="/assets/now_playing/brackets.jpg"><img src="/assets/now_playing/brackets_mid.jpg" alt="brackets" /></a>
     
     <figcaption>The single center bracket I first tried was too bouncy</figcaption>
     
@@ -109,14 +195,14 @@
 <p>And that’s it!</p>
 
 <figure class="image">
-    <a href="/assets/images/now_playing/with_record.jpg"><img src="/assets/images/now_playing/with_record_mid.jpg" alt="with record" /></a>
+    <a href="/assets/now_playing/with_record.jpg"><img src="/assets/now_playing/with_record_mid.jpg" alt="with record" /></a>
     
     <figcaption>Holding a record</figcaption>
     
 </figure>
 
 <figure class="image">
-    <a href="/assets/images/now_playing/with_radio.jpg"><img src="/assets/images/now_playing/with_radio_mid.jpg" alt="with radio" /></a>
+    <a href="/assets/now_playing/with_radio.jpg"><img src="/assets/now_playing/with_radio_mid.jpg" alt="with radio" /></a>
     
     <figcaption>Showing what's on the radio</figcaption>
     
@@ -129,16 +215,16 @@
 <p>PS: the old picture ledge we had from our last apartment? I repurposed it and its brethren to hold shallow items in the garage.</p>
 
 <figure class="image">
-    <a href="/assets/images/now_playing/garage_shelves.jpg"><img src="/assets/images/now_playing/garage_shelves_mid.jpg" alt="garage shelves" /></a>
+    <a href="/assets/now_playing/garage_shelves.jpg"><img src="/assets/now_playing/garage_shelves_mid.jpg" alt="garage shelves" /></a>
     
     <figcaption>Perfect size for glue and paint!</figcaption>
     
-</figure>]]></content><author><name></name></author><summary type="html"><![CDATA[This record display shelf also says what's on the radio.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://michaelblackmade.com/assets/images/now_playing/now_playing.jpg" /><media:content medium="image" url="https://michaelblackmade.com/assets/images/now_playing/now_playing.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Solder Dispenser</title><link href="https://michaelblackmade.com/2023/11/30/solder-dispenser.html" rel="alternate" type="text/html" title="Solder Dispenser" /><published>2023-11-30T00:00:00-08:00</published><updated>2023-11-30T00:00:00-08:00</updated><id>https://michaelblackmade.com/2023/11/30/solder-dispenser</id><content type="html" xml:base="https://michaelblackmade.com/2023/11/30/solder-dispenser.html"><![CDATA[<p>I replaced the combination work station I’ve had for years with new separated tools, and was surprised by the solution I came to for a solder dispenser.</p>
+</figure>]]></content><author><name></name></author><summary type="html"><![CDATA[This record display shelf also says what's on the radio.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://michaelblackmade.com/assets/now_playing/now_playing.jpg" /><media:content medium="image" url="https://michaelblackmade.com/assets/now_playing/now_playing.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Solder Dispenser</title><link href="https://michaelblackmade.com/2023/11/30/solder-dispenser.html" rel="alternate" type="text/html" title="Solder Dispenser" /><published>2023-11-30T00:00:00-08:00</published><updated>2023-11-30T00:00:00-08:00</updated><id>https://michaelblackmade.com/2023/11/30/solder-dispenser</id><content type="html" xml:base="https://michaelblackmade.com/2023/11/30/solder-dispenser.html"><![CDATA[<p>I replaced the combination work station I’ve had for years with new separated tools, and was surprised by the solution I came to for a solder dispenser.</p>
 
 <p>The station I’m moving away from is the “<a href="https://sciplus.com/led-magnifying-work-stand-with-third-hand">LED Magnifying Work Stand With Third Hand</a>” sold by American Science &amp; Surplus:</p>
 
 <figure class="image">
-    <a href="/assets/images/solder_dispenser/station.jpg"><img src="/assets/images/solder_dispenser/station_small.jpg" alt="combination workstation" /></a>
+    <a href="/assets/solder_dispenser/station.jpg"><img src="/assets/solder_dispenser/station_small.jpg" alt="combination workstation" /></a>
     
     <figcaption>The solder dispenser is that black horizontal bar in the back.</figcaption>
     
@@ -166,7 +252,7 @@
 <p>I thought for a moment about buying something purpose-built, but instead I looked around the room for an axle and frame and landed on this:</p>
 
 <figure class="image">
-    <a href="/assets/images/solder_dispenser/perspective.jpg"><img src="/assets/images/solder_dispenser/perspective_mid.jpg" alt="two popsicle sticks shoved through slits in folded cardboard, holding solder spools" /></a>
+    <a href="/assets/solder_dispenser/perspective.jpg"><img src="/assets/solder_dispenser/perspective_mid.jpg" alt="two popsicle sticks shoved through slits in folded cardboard, holding solder spools" /></a>
     
     <figcaption>Two popsicle sticks and a scrap of cardboard.  That's it.</figcaption>
     
@@ -177,7 +263,7 @@
 <p>I drilled holes in the ends of the sticks so I could use a safety pin to stop them from slipping out, but that turned out completely unnecessary. The press fit of the popsicle stick through a slit in the cardboard is plenty sturdy to keep things in place.</p>
 
 <figure class="image">
-    <a href="/assets/images/solder_dispenser/side.jpg"><img src="/assets/images/solder_dispenser/side_mid.jpg" alt="side view" /></a>
+    <a href="/assets/solder_dispenser/side.jpg"><img src="/assets/solder_dispenser/side_mid.jpg" alt="side view" /></a>
     
     <figcaption></figcaption>
     
@@ -186,7 +272,7 @@
 <p>The holes in the front stick are very useful, though, as they keep the threaded solder from getting lost on the spool.</p>
 
 <figure class="image">
-    <a href="/assets/images/solder_dispenser/solder_dispenser.jpg"><img src="/assets/images/solder_dispenser/solder_dispenser_mid.jpg" alt="solder dispenser" /></a>
+    <a href="/assets/solder_dispenser/solder_dispenser.jpg"><img src="/assets/solder_dispenser/solder_dispenser_mid.jpg" alt="solder dispenser" /></a>
     
     <figcaption></figcaption>
     
@@ -195,10 +281,10 @@
 <p>While this does stay in place when the solder is pulled from it, I added some adhesive rubber feet to the bottom to give it a little extra grip. Now it can take a hefty tug and still stay put.</p>
 
 <figure class="image">
-    <a href="/assets/images/solder_dispenser/feet.jpg"><img src="/assets/images/solder_dispenser/feet_mid.jpg" alt="feet" /></a>
+    <a href="/assets/solder_dispenser/feet.jpg"><img src="/assets/solder_dispenser/feet_mid.jpg" alt="feet" /></a>
     
     <figcaption></figcaption>
     
 </figure>
 
-<p>If I had a 3D printer, I’m sure I would have made something out of plastic. It would have been irresistible. But I’m actually really thankful I don’t and didn’t. This folded piece of cardboard is tough and rigid enough that I expect this dispenser to last for many years. And when its end does come, I can just toss it in the compost and make another.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Sometimes the cardboard prototype is all you need.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://michaelblackmade.com/assets/images/solder_dispenser/solder_dispenser.jpg" /><media:content medium="image" url="https://michaelblackmade.com/assets/images/solder_dispenser/solder_dispenser.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>If I had a 3D printer, I’m sure I would have made something out of plastic. It would have been irresistible. But I’m actually really thankful I don’t and didn’t. This folded piece of cardboard is tough and rigid enough that I expect this dispenser to last for many years. And when its end does come, I can just toss it in the compost and make another.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Sometimes the cardboard prototype is all you need.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://michaelblackmade.com/assets/solder_dispenser/solder_dispenser.jpg" /><media:content medium="image" url="https://michaelblackmade.com/assets/solder_dispenser/solder_dispenser.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

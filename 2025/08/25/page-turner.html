@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Page Turner | Michael Black Made</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Page Turner" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Gesture sensor for pain-free reading" />
+<meta property="og:description" content="Gesture sensor for pain-free reading" />
+<link rel="canonical" href="https://michaelblackmade.com/2025/08/25/page-turner.html" />
+<meta property="og:url" content="https://michaelblackmade.com/2025/08/25/page-turner.html" />
+<meta property="og:site_name" content="Michael Black Made" />
+<meta property="og:image" content="https://michaelblackmade.com/assets/page_turner/page_turner.jpg" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-08-25T00:00:00-07:00" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://michaelblackmade.com/assets/page_turner/page_turner.jpg" />
+<meta property="twitter:title" content="Page Turner" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-25T00:00:00-07:00","datePublished":"2025-08-25T00:00:00-07:00","description":"Gesture sensor for pain-free reading","headline":"Page Turner","image":"https://michaelblackmade.com/assets/page_turner/page_turner.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://michaelblackmade.com/2025/08/25/page-turner.html"},"url":"https://michaelblackmade.com/2025/08/25/page-turner.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://michaelblackmade.com/feed.xml" title="Michael Black Made" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Michael Black Made</a></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+    <header class="post-header">
+        <h1 class="post-title p-name" itemprop="name headline">Page Turner</h1>
+        <p class="post-meta"><time class="dt-published" datetime="2025-08-25T00:00:00-07:00" itemprop="datePublished">
+                Aug 25, 2025
+            </time></p>
+    </header>
+
+    <div class="post-content e-content" itemprop="articleBody"><figure class="video">
+    <video width="660" controls="" preload="metadata" poster="">
+        <source src="/assets/page_turner/page_turner.mp4" type="video/mp4" />
+        <source src="/assets/page_turner/page_turner.webm" type="video/webm" />
+        <p>
+            Your browser doesn't support HTML video. Here is a
+            <a href="/assets/page_turner/page_turner.mp4" download="/assets/page_turner/page_turner.mp4">link to the video</a> instead.
+        </p>
+    </video>
+    
+</figure>
+
+<p>Bodies are cool, but finicky, and sometimes they don’t do what we want. A friend of mine has some unexplained nerve pain in their hands, and it hurts for them to type on a keyboard or swipe on a touchscreen. At their request, I made them a device which connects wirelessly to an iPad and reads their waved hand gestures to touchlessly navigate pages in an e-book, allowing for pain-free reading. I built this page turner from some electronic parts from Adafruit and a 3D printed enclosure.</p>
+
+<p>A search for “gesture sensor” introduced me to Adafruit’s <a href="https://www.adafruit.com/product/3595">APDS-9960 breakout board</a>. I wanted the page turner to be small and portable, so it can travel conveniently with the e-reader, so I selected the smallest microcontroller package and battery I wanted to work with: the <a href="https://www.adafruit.com/product/5700">QT Py S3</a> (an ESP32-S3 breakout) with a <a href="https://www.adafruit.com/product/5397">charger BFF</a> and a <a href="https://www.adafruit.com/product/3898">400mAh lipo</a>. These all interconnect with JST cables, so all that needed soldering were some pin headers and an extra wire for the APDS-9960’s interrupt pin. The interrupt connection could be skipped, but it helps improve battery life by not requiring the QT Py to constantly poll the sensor.</p>
+
+<h2 id="assembly">Assembly</h2>
+
+<p>I cut a wire ~1.5” long and soldered it between the QT Py’s A3 and the sensor’s INT.</p>
+
+<figure class="image">
+    <a href="/assets/page_turner/int_wire.jpg"><img src="/assets/page_turner/int_wire_mid.jpg" alt="interrupt wire" /></a>
+    
+    <figcaption>Note that the wire enters through the back of each board.</figcaption>
+    
+</figure>
+
+<p>I soldered pin headers onto the QT Py, skipping over A3,</p>
+
+<p><a href="/assets/page_turner/pin_headers.jpg"><img src="/assets/page_turner/pin_headers_mid.jpg" alt="pin headers" /></a></p>
+
+<p>then finally soldered the charger BFF to those headers.</p>
+
+<p><a href="/assets/page_turner/charger_attached.jpg"><img src="/assets/page_turner/charger_attached_mid.jpg" alt="charger attached" /></a></p>
+
+<p>The components were connected together via JST cables and the wires were carefully bent into shape to scrunch everything into the right orientations.</p>
+
+<p><a href="/assets/page_turner/jst_attached.jpg"><img src="/assets/page_turner/jst_attached_mid.jpg" alt="JST cables" /></a></p>
+
+<p>I outsourced enclosure design to a friend who came up with this phenomenal first model:</p>
+
+<p><a href="/assets/page_turner/first_model.jpg"><img src="/assets/page_turner/first_model_mid.jpg" alt="first model" /></a></p>
+
+<p>A cap fits over the charger BFF’s onboard power switch to make it usable through the enclosure.</p>
+
+<p><a href="/assets/page_turner/switch_cap.jpg"><img src="/assets/page_turner/switch_cap_mid.jpg" alt="switch cap" /></a></p>
+
+<p>A light pipe, printed from translucent PCTG, brings the light of the status LED from the QT Py around to the same side as the switch.</p>
+
+<p><a href="/assets/page_turner/light_pipe.jpg"><img src="/assets/page_turner/light_pipe_mid.jpg" alt="light pipe" /></a></p>
+
+<p>The battery charge indicator simply shines up through a hole.</p>
+
+<p><a href="/assets/page_turner/charging.jpg"><img src="/assets/page_turner/charging_mid.jpg" alt="charging" /></a></p>
+
+<p>Some heat-set inserts were pressed in with a soldering iron to let the enclosure screw together. A spare pair on the back could be used to mount a clip, so the device could be clipped onto the side of the e-reader itself.</p>
+
+<p><a href="/assets/page_turner/inserts.jpg"><img src="/assets/page_turner/inserts_mid.jpg" alt="heat set inserts" /></a></p>
+
+<p>The completed page turner:</p>
+
+<p><a href="/assets/page_turner/page_turner.jpg"><img src="/assets/page_turner/page_turner_mid.jpg" alt="page turner" /></a></p>
+
+<h2 id="software">Software</h2>
+
+<p>The software for this project ended up relatively simple. You can check it out at <a href="http://github.com/brushyfork23/page_turner">github.com/brushyfork23/page_turner</a>.</p>
+
+<p>Originally I had configured a right-to-left swipe to advance the page and a left-to-right swipe to go back, but some real world testing revealed that you mostly only want to go forward and it’s tiring to swing your hand back around the sensor. I changed from gesture sensing to simple proximity sensing, and now the device can be used in any orientation by passing a finger back and forth.</p>
+
+<p>Basic battery monitoring is done by a scan at startup and the device flashes green, orange, or red to indicate the charge percentage remaining.</p>
+
+<h2 id="struggles">Struggles</h2>
+
+<p>The part of the enclosure where the sensor meets the face took a lot of iteration, because if there was any gap between the sensor and the enclosure aperture then the IR LED would flood the inside of the case and cause false positives.</p>
+
+<figure class="image">
+    <a href="/assets/page_turner/sensor.jpg"><img src="/assets/page_turner/sensor_mid.jpg" alt="final sensor" /></a>
+    
+    <figcaption>The final working design.</figcaption>
+    
+</figure>
+
+<p>When I started this project, I didn’t have my own 3D printer, so each iteration required finding time on another available friend’s machine. It was impossible to adjust for the sensor gap because the tolerances of each person’s printer were different, so I finally decided I was ready and purchased my own. I bought a <a href="https://www.prusa3d.com/product/prusa-core-one-kit/">Prusa Core One</a> and some <a href="https://www.3dfuel.com/collections/1-75mm-pro-pctg/products/pro-pctg-ocean-blue-1-75mm">Pro PCTG filament from 3D-Fuel</a>, and was printing with fantastic results right away once I configured <a href="https://support.3dfuel.com/hc/en-us/articles/22046343945495-Pro-PCTG-Print-Profiles">3D-Fuel’s print profiles</a>.</p>
+
+<p>Having a printer allowed me to experiment with true rapid prototyping. I printed the specific section of the model I was having trouble with and iterated on it alone, using only a gram or so of filament each time and only taking 5 minutes between versions. A month of failed back-and-forth was solved in just a few hours!</p>
+
+<p><a href="/assets/page_turner/iterations.jpg"><img src="/assets/page_turner/iterations_mid.jpg" alt="sensor iterations" /></a></p>
+</div>
+
+    <div class="post-navigation">
+        
+        <a class="prev" href="/2025/01/05/booze-shelf.html">
+            &laquo; Booze Shelf<br />
+            Jan 5, 2025
+        </a>
+         
+    </div><a class="u-url" href="/2025/08/25/page-turner.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+    <data class="u-url" href="/"></data>
+  
+    <div class="wrapper">
+  
+      <div class="footer-col-wrapper">
+        <div class="footer-col">
+            <ul class="subscribe-links">
+              <li>
+                <a rel="me" href="/feed.xml" target="_blank" title="rss">
+                  <svg class="svg-icon grey">
+                    <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+                  </svg>
+                  RSS
+                </a>
+              </li>
+              <li>
+                <a href="https://www.github.com/brushyfork23" target="_blank" title="github">
+                  <svg class="svg-icon grey">
+                    <use xlink:href="/assets/minima-social-icons.svg#github"></use>
+                  </svg>
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/@brushyfork23" target="_blank" title="youtube">
+                  <svg class="svg-icon grey">
+                    <use xlink:href="/assets/minima-social-icons.svg#youtube"></use>
+                  </svg>
+                  YouTube
+                </a>
+              </li>
+              <li>
+                <a href="https://michaelblackmade.substack.com" target="_blank" title="substack">
+                  <svg class="svg-icon grey">
+                    <g><title></title><path d="M16 4H0V6H16V4Z"></path><path d="M0 8V18L7.9993 13.534L16 18V8H0Z"></path><path d="M16 0H0V2H16V0Z"></path></g>
+                  </svg>
+                  Substack
+                </a>
+              </li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <p>I'm Michael Black. I'm a father, maker, and software developer from Seattle. I enjoy learning by building, helping folks out, and making art with friends. This site collects some things I've done.</p>
+        </div>
+      </div>
+  
+    </div>
+  
+  </footer></body>
+
+</html>
