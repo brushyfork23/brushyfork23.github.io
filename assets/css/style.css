@@ -1078,4 +1078,11 @@ blockquote {
   font-style: normal;
 }
 
+.video video {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+  display: block;
+}
+
 /*# sourceMappingURL=style.css.map */
